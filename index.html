@@ -31,9 +31,26 @@
   </div>
 
   <!-- ══════════════════════════════════ -->
+  <!-- ESCENA 0: contraseña              -->
+  <!-- ══════════════════════════════════ -->
+  <div id="scene-password" class="content">
+    <div class="panel password-panel">
+      <div class="password-icon">🔐</div>
+      <div class="password-title">ACCESO RESTRINGIDO</div>
+      <div class="password-subtitle">introduce la contraseña</div>
+      <div class="password-field-wrap">
+        <label class="password-label" for="pwd-input">Contraseña:</label>
+        <input id="pwd-input" type="password" class="password-input" onkeydown="if(event.key==='Enter') checkPassword()">
+      </div>
+      <div id="pwd-error" class="password-error hidden">✖ Contraseña incorrecta</div>
+    </div>
+    <button id="pwd-btn" onclick="checkPassword()">[ ENTRAR ]</button>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
   <!-- ESCENA 1: solo el ramo            -->
   <!-- ══════════════════════════════════ -->
-  <div id="scene-bouquet" class="content">
+  <div id="scene-bouquet" class="content hidden">
     <div class="panel bouquet-panel">
       <img src="ramo.png" alt="Ramo de flores pixel art" class="bouquet-img">
     </div>
@@ -125,10 +142,12 @@
           <ellipse cx="110" cy="150" rx="90" ry="5" fill="#ffc1dc"/>
 
           <!-- "23" on cake -->
-          <text id="cake-number" x="110" y="101"
+          <text x="110" y="101"
                 text-anchor="middle"
                 font-family="'Press Start 2P', monospace"
-                font-size="13">23</text>
+                font-size="13"
+                fill="#880040"
+                opacity=".9">23</text>
 
         </svg>
       </div>
@@ -144,7 +163,7 @@
   <!-- ── STATUS BAR ── -->
   <div class="statusbar">
     <div class="status-cell" id="status-msg">Cargando...</div>
-    <div class="status-cell" style="flex:0 0 auto; min-width:80px;"></div>
+    <div class="status-cell" style="flex:0 0 auto; min-width:80px;">esparraguito de aranjuez</div>
   </div>
 
 </div><!-- /window -->

@@ -135,7 +135,7 @@ body {
   border-right:  2px solid var(--border-lt);
   border-bottom: 2px solid var(--border-lt);
   padding: 16px 12px;
-  text-align: left;
+  text-align: center;
 }
 
 /* ── FLOWERS ROW ── */
@@ -325,6 +325,73 @@ body {
 @keyframes burst {
   0%   { transform: translate(0,0); opacity: 1; }
   100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+/* ── PANTALLA DE CONTRASEÑA ── */
+.password-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.password-icon { font-size: 32px; line-height: 1; }
+.password-title {
+  font-size: 11px;
+  color: var(--titlebar);
+  text-shadow: 2px 2px 0 var(--border-dk);
+  letter-spacing: .08em;
+}
+.password-subtitle { font-size: 7px; color: var(--text-mid); letter-spacing: .15em; }
+.password-field-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+.password-label { font-size: 8px; color: var(--text); }
+.password-input {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--white);
+  color: var(--text);
+  border-top:    2px solid var(--border-dk);
+  border-left:   2px solid var(--border-dk);
+  border-right:  2px solid var(--border-lt);
+  border-bottom: 2px solid var(--border-lt);
+  outline: none;
+  letter-spacing: .1em;
+}
+.password-input:focus { border-color: var(--titlebar); }
+.password-error {
+  font-size: 8px;
+  color: #c0392b;
+  letter-spacing: .05em;
+  animation: pixelsway .2s steps(2) 3;
+}
+#pwd-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--text);
+  background: var(--btn-face);
+  border-top:    2px solid var(--btn-hi);
+  border-left:   2px solid var(--btn-hi);
+  border-right:  2px solid var(--btn-dk);
+  border-bottom: 2px solid var(--btn-dk);
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: .12em;
+  animation: blink-border 1.2s steps(1) infinite;
+}
+#pwd-btn:active {
+  border-top:    2px solid var(--btn-dk);
+  border-left:   2px solid var(--btn-dk);
+  border-right:  2px solid var(--btn-hi);
+  border-bottom: 2px solid var(--btn-hi);
+  transform: translate(1px,1px);
+  animation: none;
 }
 
 /* ── NÚMERO "23" EN LA TARTA ── */

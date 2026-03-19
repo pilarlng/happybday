@@ -1,3 +1,17 @@
+function checkPassword() {
+  const input = document.getElementById('pwd-input').value;
+  if (input.trim().toLowerCase() === "22032003") {
+    document.getElementById('scene-password').classList.add('hidden');
+    document.getElementById('scene-bouquet').classList.remove('hidden');
+  } else {
+    const err = document.getElementById('pwd-error');
+    err.classList.remove('hidden');
+    document.getElementById('pwd-input').value = '';
+    document.getElementById('pwd-input').focus();
+    setTimeout(() => err.classList.add('hidden'), 2000);
+  }
+}
+
 const COLORS = ['#e91e8c','#c2185b','#ff69b4','#ffb6d9','#880040','#d63f80','#ffc1dc'];
 
 function goStart() {
