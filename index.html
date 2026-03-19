@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felices 23</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="window">
+
+  <!-- ── TITLE BAR ── -->
+  <div class="titlebar">
+    <div class="titlebar-label">
+      <span class="titlebar-icon">🌸</span>
+      <span>carmen.exe</span>
+    </div>
+    <div class="titlebar-controls">
+      <button class="win-btn" aria-label="Minimizar">_</button>
+      <button class="win-btn" aria-label="Maximizar">□</button>
+      <button class="win-btn" aria-label="Cerrar">✕</button>
+    </div>
+  </div>
+
+  <!-- ── MENU BAR ── -->
+  <div class="menubar" role="menubar">
+    <span><u>A</u>rchivo</span>
+    <span onclick="goStart()"><u>F</u>elicitar</span>
+    <span>A<u>y</u>uda</span>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- ESCENA 1: solo el ramo            -->
+  <!-- ══════════════════════════════════ -->
+  <div id="scene-bouquet" class="content">
+    <div class="panel bouquet-panel">
+      <img src="ramo.png" alt="Ramo de flores pixel art" class="bouquet-img">
+    </div>
+    <button id="bouquet-btn" onclick="showCard()">Mensaje</button>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- ESCENA 2: carta + tarta           -->
+  <!-- ══════════════════════════════════ -->
+  <div id="scene-card" class="content hidden">
+
+    <!-- flores + título -->
+    <div class="panel">
+      <span class="flowers-row" aria-hidden="true">🌸 🌺 🌷 🌼 🌸 🌺 🌷</span>
+      <div class="title">¡FELICES<br>23!</div>
+      <div class="subtitle">** **</div>
+      <span class="flowers-row" aria-hidden="true">🌷 🌼 🌸 🌺 🌷 🌼 🌸</span>
+    </div>
+
+    <div class="pixel-divider" aria-hidden="true"></div>
+
+    <!-- botón revelar tarta -->
+    <button id="click-btn" onclick="reveal()">  Velas  </button>
+
+    <!-- tarta (oculta hasta segundo click) -->
+    <div id="cake-section">
+
+      <div class="cake-wrap">
+        <svg viewBox="0 0 220 175" xmlns="http://www.w3.org/2000/svg" aria-label="Tarta de cumpleaños con velas encendidas">
+
+          <!-- CANDLES -->
+          <rect x="65"  y="48" width="10" height="32" rx="1" fill="#e91e8c"/>
+          <rect x="92"  y="52" width="10" height="28" rx="1" fill="#c2185b"/>
+          <rect x="119" y="47" width="10" height="33" rx="1" fill="#e91e8c"/>
+          <rect x="146" y="54" width="10" height="26" rx="1" fill="#d63f80"/>
+
+          <!-- WICKS -->
+          <line x1="70"  y1="48" x2="70"  y2="44" stroke="#5a0030" stroke-width="1.5"/>
+          <line x1="97"  y1="52" x2="97"  y2="48" stroke="#5a0030" stroke-width="1.5"/>
+          <line x1="124" y1="47" x2="124" y2="43" stroke="#5a0030" stroke-width="1.5"/>
+          <line x1="151" y1="54" x2="151" y2="50" stroke="#5a0030" stroke-width="1.5"/>
+
+          <!-- FLAMES -->
+          <g class="flame">
+            <ellipse cx="70" cy="39" rx="4.5" ry="6" fill="#ff69b4"/>
+            <ellipse cx="70" cy="37" rx="2.5" ry="4" fill="#ffb6d9"/>
+            <ellipse cx="70" cy="35" rx="1.2" ry="2.5" fill="#fff0f8"/>
+          </g>
+          <g class="flame">
+            <ellipse cx="97" cy="43" rx="4.5" ry="6" fill="#ff69b4"/>
+            <ellipse cx="97" cy="41" rx="2.5" ry="4" fill="#ffb6d9"/>
+            <ellipse cx="97" cy="39" rx="1.2" ry="2.5" fill="#fff0f8"/>
+          </g>
+          <g class="flame">
+            <ellipse cx="124" cy="38" rx="4.5" ry="6" fill="#ff69b4"/>
+            <ellipse cx="124" cy="36" rx="2.5" ry="4" fill="#ffb6d9"/>
+            <ellipse cx="124" cy="34" rx="1.2" ry="2.5" fill="#fff0f8"/>
+          </g>
+          <g class="flame">
+            <ellipse cx="151" cy="45" rx="4.5" ry="6" fill="#ff69b4"/>
+            <ellipse cx="151" cy="43" rx="2.5" ry="4" fill="#ffb6d9"/>
+            <ellipse cx="151" cy="41" rx="1.2" ry="2.5" fill="#fff0f8"/>
+          </g>
+
+          <!-- TOP TIER -->
+          <rect x="55" y="80"  width="110" height="28" rx="2" fill="#f9b8d5"/>
+          <rect x="55" y="80"  width="110" height="7"  rx="2" fill="#e91e8c"/>
+          <rect x="76"  y="91" width="6" height="6" fill="#c2185b"/>
+          <rect x="98"  y="87" width="6" height="6" fill="#c2185b"/>
+          <rect x="120" y="92" width="6" height="6" fill="#c2185b"/>
+          <rect x="142" y="88" width="6" height="6" fill="#c2185b"/>
+          <path d="M55,86 L63,96 L71,86 L79,96 L87,86 L95,96 L103,86 L111,96 L119,86 L127,96 L135,86 L143,96 L151,86 L159,96 L165,86"
+                stroke="#fff0f8" stroke-width="3" fill="none"/>
+
+          <!-- BOTTOM TIER -->
+          <rect x="28" y="108"  width="164" height="42" rx="2" fill="#f4a0c8"/>
+          <rect x="28" y="108"  width="164" height="9"  rx="2" fill="#d63f80"/>
+          <rect x="28" y="126"  width="164" height="3" fill="#c2185b" opacity=".4"/>
+          <rect x="48"  y="134" width="8" height="8" fill="#880040" opacity=".5"/>
+          <rect x="78"  y="130" width="8" height="8" fill="#880040" opacity=".5"/>
+          <rect x="108" y="135" width="8" height="8" fill="#880040" opacity=".5"/>
+          <rect x="138" y="131" width="8" height="8" fill="#880040" opacity=".5"/>
+          <rect x="164" y="134" width="8" height="8" fill="#880040" opacity=".5"/>
+          <path d="M28,116 L38,128 L48,116 L58,128 L68,116 L78,128 L88,116 L98,128 L108,116 L118,128 L128,116 L138,128 L148,116 L158,128 L168,116 L178,128 L188,116 L192,116"
+                stroke="#fff0f8" stroke-width="3" fill="none"/>
+
+          <!-- PLATE -->
+          <ellipse cx="110" cy="152" rx="90" ry="8" fill="#d63f80" opacity=".6"/>
+          <ellipse cx="110" cy="150" rx="90" ry="5" fill="#ffc1dc"/>
+
+          <!-- "23" on cake -->
+          <text id="cake-number" x="110" y="101"
+                text-anchor="middle"
+                font-family="'Press Start 2P', monospace"
+                font-size="13">23</text>
+
+        </svg>
+      </div>
+
+      <div class="wish">
+    ¡Te queremos mucho!<br>
+      </div>
+
+    </div><!-- /cake-section -->
+
+  </div><!-- /scene-card -->
+
+  <!-- ── STATUS BAR ── -->
+  <div class="statusbar">
+    <div class="status-cell" id="status-msg">Cargando...</div>
+    <div class="status-cell" style="flex:0 0 auto; min-width:80px;"></div>
+  </div>
+
+</div><!-- /window -->
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ── PALETTE ── */
+:root {
+  --bg:          #f9d0e4;
+  --bg-pattern:  #f0b8d2;
+  --win-bg:      #ffecf4;
+  --titlebar:    #c2185b;
+  --titlebar-hi: #e91e8c;
+  --title-text:  #fff0f5;
+  --border-lt:   #ffc1dc;
+  --border-dk:   #880040;
+  --border-mid:  #d63f80;
+  --text:        #5a0030;
+  --text-mid:    #9c1a5a;
+  --text-lt:     #d4608a;
+  --btn-face:    #ffcde5;
+  --btn-hi:      #ffeaf4;
+  --btn-dk:      #a0256a;
+  --btn-shadow:  #601040;
+  --inset-bg:    #fff0f8;
+  --accent:      #ff69b4;
+  --white:       #ffffff;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── BODY — Windows desktop tiled pattern ── */
+body {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg,   var(--bg-pattern) 0px, var(--bg-pattern) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg,  var(--bg-pattern) 0px, var(--bg-pattern) 1px, transparent 1px, transparent 4px);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  image-rendering: pixelated;
+}
+
+/* ── WINDOW SHELL ── */
+.window {
+  width: min(500px, 98vw);
+  background: var(--win-bg);
+  /* classic Win98 3-D raised border */
+  border-top:    2px solid var(--border-lt);
+  border-left:   2px solid var(--border-lt);
+  border-right:  2px solid var(--border-dk);
+  border-bottom: 2px solid var(--border-dk);
+  box-shadow: 1px 1px 0 var(--border-mid), 2px 2px 0 var(--border-dk);
+}
+
+/* ── TITLE BAR ── */
+.titlebar {
+  background: linear-gradient(90deg, var(--titlebar) 0%, var(--titlebar-hi) 60%, var(--border-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+  user-select: none;
+}
+
+.titlebar-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--title-text);
+  font-size: 9px;
+  letter-spacing: .05em;
+  text-shadow: 1px 1px 0 var(--border-dk);
+}
+
+.titlebar-icon { font-size: 12px; line-height: 1; }
+
+.titlebar-controls { display: flex; gap: 3px; }
+
+.win-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--btn-face);
+  border-top:    2px solid var(--btn-hi);
+  border-left:   2px solid var(--btn-hi);
+  border-right:  2px solid var(--btn-dk);
+  border-bottom: 2px solid var(--btn-dk);
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+}
+.win-btn:active {
+  border-top:    2px solid var(--btn-dk);
+  border-left:   2px solid var(--btn-dk);
+  border-right:  2px solid var(--btn-hi);
+  border-bottom: 2px solid var(--btn-hi);
+}
+
+/* ── MENU BAR ── */
+.menubar {
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--border-mid);
+  background: var(--win-bg);
+}
+.menubar span {
+  font-size: 8px;
+  color: var(--text);
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.menubar span:hover { background: var(--titlebar); color: var(--white); }
+.menubar span u    { text-decoration: underline; }
+
+/* ── CONTENT AREA ── */
+.content {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── INSET PANEL ── */
+.panel {
+  width: 100%;
+  background: var(--inset-bg);
+  border-top:    2px solid var(--border-dk);
+  border-left:   2px solid var(--border-dk);
+  border-right:  2px solid var(--border-lt);
+  border-bottom: 2px solid var(--border-lt);
+  padding: 16px 12px;
+  text-align: left;
+}
+
+/* ── FLOWERS ROW ── */
+.flowers-row {
+  font-size: 18px;
+  letter-spacing: 4px;
+  line-height: 1.4;
+  animation: pixelsway 3s steps(4) infinite;
+  display: block;
+}
+@keyframes pixelsway {
+  0%,100% { transform: translateX(0); }
+  25%     { transform: translateX(-2px); }
+  75%     { transform: translateX(2px); }
+}
+
+/* ── MAIN TITLE ── */
+.title {
+  font-size: clamp(22px, 7vw, 36px);
+  color: var(--titlebar);
+  text-shadow:
+    2px 0 0 var(--border-dk),
+    0 2px 0 var(--border-dk),
+    2px 2px 0 var(--border-dk),
+    4px 4px 0 var(--border-mid);
+  line-height: 1.3;
+  margin: 4px 0;
+  letter-spacing: .02em;
+}
+
+.subtitle {
+  font-size: 8px;
+  color: var(--text-mid);
+  letter-spacing: .12em;
+  margin-top: -4px;
+}
+
+/* ── PIXEL DIVIDER ── */
+.pixel-divider {
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--titlebar)    0 6px,
+    var(--accent)      6px 12px,
+    var(--border-lt)   12px 18px,
+    var(--border-mid)  18px 24px
+  );
+  image-rendering: pixelated;
+}
+
+/* ── CLICK BUTTON ── */
+#bouquet-btn,
+#click-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--text);
+  background: var(--btn-face);
+  border-top:    2px solid var(--btn-hi);
+  border-left:   2px solid var(--btn-hi);
+  border-right:  2px solid var(--btn-dk);
+  border-bottom: 2px solid var(--btn-dk);
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: blink-border 1.2s steps(1) infinite;
+}
+@keyframes blink-border {
+  0%,49% { border-color: var(--btn-hi) var(--btn-dk) var(--btn-dk) var(--btn-hi); }
+  50%,100%{ border-color: var(--accent) var(--btn-shadow) var(--btn-shadow) var(--accent); }
+}
+#click-btn:active {
+  border-top:    2px solid var(--btn-dk);
+  border-left:   2px solid var(--btn-dk);
+  border-right:  2px solid var(--btn-hi);
+  border-bottom: 2px solid var(--btn-hi);
+  transform: translate(1px,1px);
+  animation: none;
+}
+#click-btn.hidden { display: none; }
+
+/* ── CAKE SECTION ── */
+#cake-section {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .6s steps(12), opacity .5s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#cake-section.visible { max-height: 600px; opacity: 1; }
+
+/* ── SVG CAKE ── */
+.cake-wrap { width: min(240px, 90%); }
+
+/* flame flicker — pixel steps */
+@keyframes flicker {
+  0%   { transform: scaleY(1)   scaleX(1);   }
+  25%  { transform: scaleY(.85) scaleX(1.15); }
+  50%  { transform: scaleY(1.1) scaleX(.9);  }
+  75%  { transform: scaleY(.9)  scaleX(1.05); }
+  100% { transform: scaleY(1)   scaleX(1);   }
+}
+.flame { transform-origin: center bottom; animation: flicker 1s steps(4) infinite; }
+.flame:nth-child(2) { animation-delay: .15s; }
+.flame:nth-child(3) { animation-delay: .3s; }
+.flame:nth-child(4) { animation-delay: .1s; }
+.flame:nth-child(5) { animation-delay: .25s; }
+
+/* ── WISH TEXT ── */
+.wish {
+  font-size: 8px;
+  color: var(--text);
+  line-height: 2;
+  text-align: center;
+  padding: 10px;
+  background: var(--inset-bg);
+  border-top:    2px solid var(--border-dk);
+  border-left:   2px solid var(--border-dk);
+  border-right:  2px solid var(--border-lt);
+  border-bottom: 2px solid var(--border-lt);
+  width: 100%;
+}
+
+/* ── STATUS BAR ── */
+.statusbar {
+  display: flex;
+  gap: 2px;
+  padding: 3px 4px;
+  border-top: 1px solid var(--border-mid);
+  background: var(--win-bg);
+}
+.status-cell {
+  flex: 1;
+  font-size: 7px;
+  color: var(--text-lt);
+  border-top:    1px solid var(--border-dk);
+  border-left:   1px solid var(--border-dk);
+  border-right:  1px solid var(--border-lt);
+  border-bottom: 1px solid var(--border-lt);
+  padding: 2px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── SCENE TRANSITIONS ── */
+.hidden { display: none !important; }
+
+/* ── BOUQUET PANEL ── */
+.bouquet-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px 0 0;
+}
+
+.bouquet-img {
+  display: block;
+  max-width: 100%;
+  width: 300px;
+  margin: 0 auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation: bouquet-float 3s steps(4) infinite;
+}
+
+@keyframes bouquet-float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ── PIXEL CONFETTI ── */
+.confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  animation: burst .8s steps(8) forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0,0); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+/* ── NÚMERO "23" EN LA TARTA ── */
+#cake-number {
+  fill: #118357;
+  stroke: #880040;
+  stroke-width: 1px;
+  paint-order: stroke fill;
+}
+
+}
